@@ -1,0 +1,26 @@
+<body class="card" style="height:50vh; margin:5rem">
+    <form #emForm="ngForm" (ngSubmit)="emForm.valid&&onSubmit()">
+        <div class="row">
+            <div class="col-md-4">
+                <label>First Name</label>
+                <input type="text" name="firstName" class="form-control" #firstName="ngModel" [(ngModel)]="data.firstName" required>
+                <small class="text-danger" *ngIf="emForm.submitted&&firstName.errors?.['required']">Name Is Required</small>
+            </div>
+            <div class="col-md-4">
+                <label>Last Name</label>
+                <input type="text" name="lastName" class="form-control" #lastName="ngModel" required [(ngModel)]="data.lastName">
+                <small class="text-danger" *ngIf="emForm.submitted&&lastName.errors?.['required']">Name Is Required</small>
+            </div>
+            <div class="col-md-4">
+                <label>Age</label>
+                <input type="number" name="age" class="form-control"  #age="ngModel" required [(ngModel)]="data.age">
+                <small class="text-danger" *ngIf="emForm.submitted&&age.errors?.['required']">Age Is Required</small>
+            </div>
+        </div>
+        <br>
+        <br><br>
+        <div style="text-align:center">
+            <button class="btn btn-primary">submit</button>
+        </div>
+    </form>
+</body>

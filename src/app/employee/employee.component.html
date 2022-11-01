@@ -1,0 +1,33 @@
+<nav class="navbar bg-light">
+    <div class="container-fluid" style="display: flex; flex-direction:row; justify-content:center; align-items:center">
+      <span class="navbar-brand mb-0 h1">Employee CURD</span>
+    </div>
+  </nav>
+  <div  style="display: flex; flex-direction:row; justify-content:center; align-items:center">
+    <button type="button" class="btn btn-primary" (click)="navigate()">
+        <i class="bi bi-plus"></i>
+        Create</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let item of empArr">
+        <td>{{item.firstName}}</td>
+        <td>{{item.lastName}}</td>
+        <td>{{item.age}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="onEdit(item._id)">Edit</button>
+          <button class="btn btn-danger" (click)="onDelete(item._id)">Delete</button>
+        </td>
+       
+      </tr>
+    </tbody>
+  </table>
